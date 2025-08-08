@@ -1,11 +1,9 @@
 import type { ProjectInsights, GitHubRepo } from '../types';
 import { detectLiveDemo } from './github.ts';
-import dotenv from "dotenv";
-dotenv.config();
 
 // Free AI API using Hugging Face Inference API
-const HUGGING_FACE_API_URL = process.env.AI_INSIGHTS_URL;
-const HUGGING_FACE_API_TOKEN = process.env.AI_INSIGHTS_TOKEN;
+const HUGGING_FACE_API_URL = import.meta.env.VITE_AI_INSIGHTS_URL;
+const HUGGING_FACE_API_TOKEN = import.meta.env.VITE_AI_INSIGHTS_TOKEN;
 
 export const generateAIInsights = async (content: string, repoData?: GitHubRepo): Promise<string> => {
   try {
