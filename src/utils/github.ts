@@ -1,5 +1,7 @@
+import { GitHubRepo } from "../types";
+
 export const extractRepoFromUrl = (url: string): { owner: string; repo: string } | null => {
-  const regex = /github\.com\/([^\/]+)\/([^\/]+)/;
+  const regex = /github\.com\/([^/]+)\/([^/]+)/;
   const match = url.match(regex);
   
   if (match) {
@@ -242,25 +244,23 @@ export const fetchReleases = async (owner: string, repo: string): Promise<number
 };
 
 export const detectLiveDemo = (readmeContent: string, repoData?: GitHubRepo): string | undefined => {
-  const content = readmeContent.toLowerCase();
-  
   // Common demo URL patterns
   const demoPatterns = [
-    /demo[:\s]*https?:\/\/[^\s\)]+/gi,
-    /live[:\s]*https?:\/\/[^\s\)]+/gi,
-    /preview[:\s]*https?:\/\/[^\s\)]+/gi,
-    /deployed[:\s]*https?:\/\/[^\s\)]+/gi,
-    /https?:\/\/[^\s\)]*\.vercel\.app[^\s\)]*/gi,
-    /https?:\/\/[^\s\)]*\.netlify\.app[^\s\)]*/gi,
-    /https?:\/\/[^\s\)]*\.herokuapp\.com[^\s\)]*/gi,
-    /https?:\/\/[^\s\)]*\.github\.io[^\s\)]*/gi,
+    /demo[:\s]*https?:\/\/[^\s)]+/gi,
+    /live[:\s]*https?:\/\/[^\s)]+/gi,
+    /preview[:\s]*https?:\/\/[^\s)]+/gi,
+    /deployed[:\s]*https?:\/\/[^\s)]+/gi,
+    /https?:\/\/[^\s)]*\.vercel\.app[^\s)]*/gi,
+    /https?:\/\/[^\s)]*\.netlify\.app[^\s)]*/gi,
+    /https?:\/\/[^\s)]*\.herokuapp\.com[^\s)]*/gi,
+    /https?:\/\/[^\s)]*\.github\.io[^\s)]*/gi,
   ];
   
   for (const pattern of demoPatterns) {
     const matches = readmeContent.match(pattern);
     if (matches && matches[0]) {
       // Extract just the URL part
-      const urlMatch = matches[0].match(/https?:\/\/[^\s\)]+/);
+      const urlMatch = matches[0].match(/https?:\/\/[^\s)]+/);
       if (urlMatch) {
         return urlMatch[0];
       }
