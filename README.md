@@ -88,14 +88,5 @@ Spoon embraces a "chaotic-good" design approach with:
 
 > "More commits than my relationship has texts"
 
-## 📝 License
-
-MIT License - Feel free to fork, modify, and use Spoon for your own projects!
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
 
 Made with 💜 by Spoon • Your friendly AI project critic since 2024
