@@ -89,4 +89,4 @@ Spoon embraces a "chaotic-good" design approach with:
 > "More commits than my relationship has texts"
 
 
-Made with 💜 by Spoon • Your friendly AI project critic since 2024
+Made with 💜 by Spoon • Your friendly AI project critic since 2025
